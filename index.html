@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="to-do-list.png">
+    <title>Done & Dusted</title>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Modal Box -->
+    <div class="modal" id="nameModal">
+        <h2>Enter Your Name</h2>
+        <div class="modalinput">
+            <input type="text" id="usernameInput" placeholder="Radha...">
+            <button onclick="saveName()">Submit</button>
+        </div>
+    </div>
+    <div class="modal2" id="taskModal">
+        <h2>Edit the Task</h2>
+        <div class="taskmodalinput">
+            <input type="text" id="taskInput" placeholder="edit task">
+            <button id="saveTaskButton">Submit</button>
+        </div>
+    </div>
+    <header>
+        <section class="profileSection">
+            <section class="userSection">
+                <img src="user.png" alt="user" height="30" width="30">
+                <span class="userText">User</span>
+            </section>
+            <section class="coinSection">
+                <img src="coin.png" alt="coins" height="30" width="30">
+                <span class="coinText">0</span>
+            </section>
+        </section>
+    </header>
+
+    <main>
+        <section class="titleSection">
+            <h1>Done & Dusted</h1>
+            <p>🎉 "No More Procrastination, Just Progress!"</p>
+        </section>
+        <section class="todoTaskSection">
+            <form action="">
+                <section class="inputSection">
+                    <input type="text" placeholder="any pending tasks?.." id="userTaskName">
+                </section> 
+                <section class="formSubmitSection">
+                    <select class="prioritylist" name="Priority" id="priority">
+                        <option value="urgentTask">Urgent</option>
+                        <option value="normalTask" selected>Normal</option>
+                    </select>
+                    <button id="addTask">Add Task</button>
+                </section>
+            </form>
+        </section>
+        <section class="listOfTasksSection">
+            <h2>Things TO DO</h2>
+            <ul>
+                <li class="tasktodo">
+                    <p class="urgent">Task Added</p>
+                    <div class="imgblock">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50" class="editTask">
+                            <path d="M 43.125 2 C 41.878906 2 40.636719 2.488281 39.6875 3.4375 L 38.875 4.25 L 45.75 11.125 C 45.746094 11.128906 46.5625 10.3125 46.5625 10.3125 C 48.464844 8.410156 48.460938 5.335938 46.5625 3.4375 C 45.609375 2.488281 44.371094 2 43.125 2 Z M 37.34375 6.03125 C 37.117188 6.0625 36.90625 6.175781 36.75 6.34375 L 4.3125 38.8125 C 4.183594 38.929688 4.085938 39.082031 4.03125 39.25 L 2.03125 46.75 C 1.941406 47.09375 2.042969 47.457031 2.292969 47.707031 C 2.542969 47.957031 2.90625 48.058594 3.25 47.96875 L 10.75 45.96875 C 10.917969 45.914063 11.070313 45.816406 11.1875 45.6875 L 43.65625 13.25 C 44.054688 12.863281 44.058594 12.226563 43.671875 11.828125 C 43.285156 11.429688 42.648438 11.425781 42.25 11.8125 L 9.96875 44.09375 L 5.90625 40.03125 L 38.1875 7.75 C 38.488281 7.460938 38.578125 7.011719 38.410156 6.628906 C 38.242188 6.246094 37.855469 6.007813 37.4375 6.03125 C 37.40625 6.03125 37.375 6.03125 37.34375 6.03125 Z"></path>
+                            </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50" class="completeTask">
+                                <path d="M 11 4 C 7.101563 4 4 7.101563 4 11 L 4 39 C 4 42.898438 7.101563 46 11 46 L 39 46 C 42.898438 46 46 42.898438 46 39 L 46 15 L 44 17.3125 L 44 39 C 44 41.800781 41.800781 44 39 44 L 11 44 C 8.199219 44 6 41.800781 6 39 L 6 11 C 6 8.199219 8.199219 6 11 6 L 37.40625 6 L 39 4 Z M 43.25 7.75 L 23.90625 30.5625 L 15.78125 22.96875 L 14.40625 24.4375 L 23.3125 32.71875 L 24.09375 33.4375 L 24.75 32.65625 L 44.75 9.03125 Z"></path>
+                                </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50" class="deleteTask" fill="red">
+                                    <path d="M 25 2 C 12.309534 2 2 12.309534 2 25 C 2 37.690466 12.309534 48 25 48 C 37.690466 48 48 37.690466 48 25 C 48 12.309534 37.690466 2 25 2 z M 25 4 C 36.609534 4 46 13.390466 46 25 C 46 36.609534 36.609534 46 25 46 C 13.390466 46 4 36.609534 4 25 C 4 13.390466 13.390466 4 25 4 z M 32.990234 15.986328 A 1.0001 1.0001 0 0 0 32.292969 16.292969 L 25 23.585938 L 17.707031 16.292969 A 1.0001 1.0001 0 0 0 16.990234 15.990234 A 1.0001 1.0001 0 0 0 16.292969 17.707031 L 23.585938 25 L 16.292969 32.292969 A 1.0001 1.0001 0 1 0 17.707031 33.707031 L 25 26.414062 L 32.292969 33.707031 A 1.0001 1.0001 0 1 0 33.707031 32.292969 L 26.414062 25 L 33.707031 17.707031 A 1.0001 1.0001 0 0 0 32.990234 15.986328 z"></path>
+                                    </svg>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="completedTaskSection">
+            <h2>Completed Tasks</h2>
+            <ul>
+                <li class="completedTaskDetail">
+                    <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50" class="completedTask">
+                        <path d="M 11 4 C 7.101563 4 4 7.101563 4 11 L 4 39 C 4 42.898438 7.101563 46 11 46 L 39 46 C 42.898438 46 46 42.898438 46 39 L 46 15 L 44 17.3125 L 44 39 C 44 41.800781 41.800781 44 39 44 L 11 44 C 8.199219 44 6 41.800781 6 39 L 6 11 C 6 8.199219 8.199219 6 11 6 L 37.40625 6 L 39 4 Z M 43.25 7.75 L 23.90625 30.5625 L 15.78125 22.96875 L 14.40625 24.4375 L 23.3125 32.71875 L 24.09375 33.4375 L 24.75 32.65625 L 44.75 9.03125 Z"></path>
+                        </svg>
+                    <p>Completed Task</p>
+                </li>
+            </ul>
+        </section>
+        <section>
+            <button class="clear">Clear All</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

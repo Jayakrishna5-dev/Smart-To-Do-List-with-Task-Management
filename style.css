@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Sora:wght@100..800&display=swap');
+
+:root{
+    --headingFont: "Bricolage Grotesque", sans-serif;
+    --bodyFont: "Sora", sans-serif;
+    --headingColor: #5e2217;
+    --backgroundColor: #f3ebcd;
+    --accountSectionText: #14140f;
+    --completedTaskBack: #f6681b;
+    --completedTaskText: #fff0d6;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: var(--bodyFont);
+    background-color: var(--backgroundColor);
+}
+h1, h2{
+    font-family: var(--headingFont);
+    color: var(--headingColor);
+}
+
+/* header section */
+header, main{
+    width: 350px;
+    max-width: 650px;
+    margin: auto;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 2em 1em 1em;
+    width: 400px;
+}
+.profileSection{
+    padding: 1px 10px;
+    border-radius: 10px;
+    color: var(--accountSectionText);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.profileSection section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.userSection img, .coinSection img{
+    margin-right: 5px;
+}
+
+/* Intro section */
+.titleSection{
+    margin: 1em 0;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titleSection h1{
+    margin-bottom: 0.7em;
+}
+
+/* input section */
+.inputSection, .formSubmitSection{
+    width: 350px;
+    max-width: 600px;
+}
+.formSubmitSection{
+    display: flex;
+    padding-top: 1em;
+}
+.todoTaskSection form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+.todoTaskSection form .formSubmitSection button, .clear{
+    box-shadow: 0 0 1px var(--headingColor);
+    background-color: var(--headingColor);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.todoTaskSection form .formSubmitSection button:active, .tasktodo img:active{
+    transform: scale(0.96);
+}
+.todoTaskSection form .inputSection input, .todoTaskSection form .formSubmitSection select, .todoTaskSection form .formSubmitSection button{
+    padding: 10px;
+    border-radius: 5px;
+}
+.todoTaskSection form .inputSection input{
+    width: 100%;
+}
+.todoTaskSection form .formSubmitSection select, .todoTaskSection form .formSubmitSection button{
+    width: 50%;
+    font-size: 17px;
+}
+.todoTaskSection form .formSubmitSection select{
+    margin-right: 0.5em;
+}
+
+/* task list design */
+.listOfTasksSection ul{
+    padding: 2em 0;
+}
+.tasktodo{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.7em 0.5em;
+}
+.tasktodo .imgblock{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.tasktodo p, .completedlist p{
+    padding-left: 3px;
+    border-radius: 3px;
+    font-size: 17px;
+}   
+.tasktodo p.urgent, .completedlist p.urgent{
+    border-left: 5px solid red;
+}
+.tasktodo p.normal, .completedlist p.normal{
+    border-left: 5px solid #0dc10d;
+}
+.tasktodo svg.editTask{
+    margin-right: 10px;
+}
+.tasktodo svg.deleteTask{
+    margin-left: 10px;
+}
+.tasktodo svg{
+    cursor: pointer;
+}
+.tasktodo svg.editTask:hover, .tasktodo svg.deleteTask:hover{
+    fill: #ff2600;
+    transform: scale(1.1);
+}
+.tasktodo svg.completeTask:hover{
+    fill: #029435;
+    transform: scale(1.1);
+}
+
+
+/*completed Task design */
+.completedTaskDetail{
+    display: flex;
+    align-items: center;
+}
+.completedTaskDetail p{
+    margin-left: 0.7em;
+    font-size: 17px;
+}
+.completedTaskSection ul{
+    padding: 1em 0.25em;
+}
+
+/*overlay*/
+.overlay{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(247, 225, 225);
+    filter: blur(0px);
+}
+/*modal*/
+.modal, .modal2{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.modal h2, .modal2 h2{
+    margin-bottom: 10px;
+}
+.modalinput, .taskmodalinput{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.modalinput input, .taskmodalinput input{
+    padding: 5px;
+    margin: 10px 0;
+    width: 100%;
+}
+.modalinput button, .taskmodalinput button{
+    padding: 5px 0;
+    border: none;
+    background-color: var(--headingColor);
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+.modalinput button:active, .taskmodalinput button:active{
+    transform: scale(0.9);
+}
+.completedlist{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clear{
+    padding: 10px;
+    font-size: 17px;
+}
