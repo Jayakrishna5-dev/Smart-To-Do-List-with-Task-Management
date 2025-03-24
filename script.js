@@ -164,8 +164,9 @@ function loadContents() {
             localStorage.setItem("addedtaskDetails", JSON.stringify(addedtasks));
             localStorage.setItem("completedtaskDetails", JSON.stringify(completedtasks));
             coins = task[1] === "urgentTask" ? coins += 2 : coins += 1;
+            localStorage.setItem("coin", JSON.stringify(coins));
             alert(`🎉 Congratulations! 🎉 You’ve successfully completed TASK "${task[0]}"!(${task[1]}) ✅✨ 💰 You now have ${coins} coins! Keep up the great work! 🚀🔥`);
-            cointext.innerText = coins;
+            cointext.innerText = JSON.parse(localStorage.getItem("coin"));
             loadContents();
         });
         taskListSection.appendChild(newlist);
