@@ -1,5 +1,4 @@
 let userName = localStorage.getItem("userName");
-let coins = 0;
 let cointext = document.querySelector(".coinText");
 let taskName = document.getElementById('userTaskName');
 let taskPriority = document.querySelector('.prioritylist');
@@ -134,6 +133,8 @@ function loadContents() {
     completedTaskSection.innerHTML = "";
     let addedtasks = JSON.parse(localStorage.getItem("addedtaskDetails")) || [];
     let completedtasks = JSON.parse(localStorage.getItem("completedtaskDetails")) || [];
+    let coins = JSON.parse(localStorage.getItem("coin")) || 0;
+    cointext.innerText = coins;
 
     addedtasks.forEach((task, index) => {
         const newlist = document.createElement("li");
@@ -166,7 +167,7 @@ function loadContents() {
             coins = task[1] === "urgentTask" ? coins += 2 : coins += 1;
             localStorage.setItem("coin", JSON.stringify(coins));
             alert(`🎉 Congratulations! 🎉 You’ve successfully completed TASK "${task[0]}"!(${task[1]}) ✅✨ 💰 You now have ${coins} coins! Keep up the great work! 🚀🔥`);
-            cointext.innerText = JSON.parse(localStorage.getItem("coin"));
+            cointext.innerText = coins;
             loadContents();
         });
         taskListSection.appendChild(newlist);
